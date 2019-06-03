@@ -1,0 +1,15 @@
+﻿@model Product
+@{ 
+    ViewData["Name"] = "test";
+    var products = (IEnumerable<SelectListItem>)ViewData["products"];
+}
+<form asp-action="test">
+    <label asp-for="Name">@Html.DisplayNameFor(model => model.Name)</label>
+    <input asp-for="Name" />
+    <br />
+    <label asp-for="ID">@Html.DisplayNameFor(model => model.ID)</label>
+    <select asp-for="ID" asp-items="products"></select>
+    <br />
+
+    <input type="submit" value="test" />
+</form>

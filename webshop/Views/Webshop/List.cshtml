@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Alle Producten";
+}
+
+@{
+    var products = ViewData["products"] as List<Product>;
+    <a asp-action="Create">Create New</a>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Naam</th>
+        <th>Prijs</th>
+        <th>Detail</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (Product p in products)
+    {
+    <tr>
+        <td>@p.ID</td>
+        <td>@p.Name</td>
+        <td>@p.Price</td>
+        <td><a asp-action="Detail" asp-controller="Webshop" asp-route-id="@p.ID">Detail</a></td>
+        <td><a asp-action="Delete" asp-controller="Webshop" asp-route-id="@p.ID">Delete</a></td>
+        <td><a asp-action="Winkelwagen" asp-controller="Webshop" asp-route-id="@p.ID">Toevoegen aan winkelmandje</a></td>
+    </tr>
+    }
+</table>   
+}
+

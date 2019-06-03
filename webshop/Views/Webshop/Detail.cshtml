@@ -1,0 +1,38 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>Producten</h4>
+    @{
+        var products = (IEnumerable<SelectListItem>)ViewData["products"];
+    }
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Naam:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            Omschrijving:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Omschr)
+        </dd>
+        <dd>
+
+            <a asp-controller="ShoppingItems" asp-action="Create" asp-route-id="@Html.DisplayFor(model=>model.ID)">Winkelmandje</a>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
